@@ -16,9 +16,23 @@ var AuthKinoService = /** @class */ (function () {
             })
         };
         var user = { email: email, password: password };
-        this.http.post('http://kino.test/auth/login', JSON.stringify(user), http).subscribe(function (data) {
+        var url = this.api + '/login';
+        this.http.post(url, JSON.stringify(user), http).subscribe(function (data) {
             _this.router.navigate(['home']);
             localStorage.setItem('token', data['token']);
+        });
+    };
+    AuthKinoService.prototype.register = function (name, email, password) {
+        var _this = this;
+        var http = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        };
+        var user = { name: name, email: email, password: password };
+        var url = this.api + '/register';
+        this.http.post(url, JSON.stringify(user), http).subscribe(function (data) {
+            _this.router.navigate(['login']);
         });
     };
     AuthKinoService.prototype.logout = function () {

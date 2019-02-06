@@ -19,10 +19,24 @@ export class AuthKinoService {
       })
     };
     let user = {email: email, password: password};
-    this.http.post('http://kino.test/auth/login', JSON.stringify(user), http).subscribe(data => {
+    let url = this.api+'/login';
+    this.http.post(url, JSON.stringify(user), http).subscribe(data => {
       this.router.navigate(['home']);
       localStorage.setItem('token',data['token']);
     });
+  }
+
+  register(name:string,email:string,password:string) {
+    let http = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    let user = {name: name, email: email, password: password};
+    let url = this.api+'/register';
+    this.http.post(url, JSON.stringify(user), http).subscribe(data=> {
+      this.router.navigate(['login']);
+    })
   }
 
   logout() {
