@@ -10,7 +10,7 @@ import { AuthKinoService } from '../../services/authKino.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private auth: AuthKinoService, private router: Router) {
+  constructor(public auth: AuthKinoService, private router: Router) {
     if(!auth.logIn) {
       this.router.navigate(['inicio']);
     }
