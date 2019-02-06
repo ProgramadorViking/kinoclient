@@ -1,12 +1,15 @@
 import * as tslib_1 from "tslib";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CoverComponent } from './components/cover/cover.component';
 import { FilmsComponent } from './components/films/films.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -17,11 +20,14 @@ var AppModule = /** @class */ (function () {
                 NavbarComponent,
                 HomeComponent,
                 CoverComponent,
-                FilmsComponent
+                FilmsComponent,
+                LoginComponent,
+                RegisterComponent
             ],
             imports: [
                 BrowserModule,
-                AppRoutingModule
+                AppRoutingModule,
+                HttpClientModule
             ],
             providers: [],
             bootstrap: [AppComponent]

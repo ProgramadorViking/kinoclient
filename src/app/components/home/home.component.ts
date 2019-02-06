@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthKinoService } from '../../services/authKino.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthKinoService, private router: Router) {
+    if(!auth.logIn) {
+      this.router.navigate(['inicio']);
+    }
+   }
 
   ngOnInit() {
   }
