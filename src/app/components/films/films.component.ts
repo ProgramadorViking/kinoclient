@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { KinoService } from '../../services/kino.service';
+
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsComponent implements OnInit {
 
-  constructor() { }
+  peliculas:any[]=[];
+  loading:boolean;
+
+  constructor(private kino: KinoService) {
+    this.loading=true;
+    
+   }
 
   ngOnInit() {
   }

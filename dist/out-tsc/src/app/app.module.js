@@ -1,8 +1,7 @@
+import * as tslib_1 from "tslib";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,25 +12,32 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CardComponent } from './components/card/card.component';
 import { FilmComponent } from './components/film/film.component';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    CoverComponent,
-    FilmsComponent,
-    LoginComponent,
-    RegisterComponent,
-    CardComponent,
-    FilmComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [
+                AppComponent,
+                NavbarComponent,
+                HomeComponent,
+                CoverComponent,
+                FilmsComponent,
+                LoginComponent,
+                RegisterComponent,
+                CardComponent,
+                FilmComponent
+            ],
+            imports: [
+                BrowserModule,
+                AppRoutingModule,
+                HttpClientModule
+            ],
+            providers: [],
+            bootstrap: [AppComponent]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+export { AppModule };
+//# sourceMappingURL=app.module.js.map
