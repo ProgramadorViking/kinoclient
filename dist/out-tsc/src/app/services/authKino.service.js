@@ -7,7 +7,7 @@ var AuthKinoService = /** @class */ (function () {
         this.http = http;
         this.router = router;
         //Prod api
-        this.api = 'https://kinoapi.herokuapp.com';
+        this.api = 'https://kinoapi.herokuapp.com/auth';
     }
     AuthKinoService.prototype.login = function (email, password) {
         var _this = this;
