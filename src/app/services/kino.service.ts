@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { query } from '@angular/core/src/render3';
+import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class KinoService {
   //Dev Api
   //api='http://kino.test/'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   //Creación de la cabecera
   createHeader() {
@@ -37,9 +39,15 @@ export class KinoService {
   }
 
   //peticiones
-  getFilms() {
-    return this.getQuery('films').subscribe(data=>{
-      console.log(data);
-    })
+  getFilms():Observable <any> {
+    return this.getQuery('films');
+  }
+
+  //Otras funciones
+  validate(error) {
+    if(error.status==401) {
+      localStorage.removeItem('token');
+      this.router.navigate(['login']);
+    }
   }
 }

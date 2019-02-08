@@ -1,11 +1,13 @@
 import * as tslib_1 from "tslib";
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 var KinoService = /** @class */ (function () {
     //Dev Api
     //api='http://kino.test/'
-    function KinoService(http) {
+    function KinoService(http, router) {
         this.http = http;
+        this.router = router;
         //Prod Api 
         this.api = 'https://kinoapi.herokuapp.com/';
     }
@@ -30,15 +32,20 @@ var KinoService = /** @class */ (function () {
     };
     //peticiones
     KinoService.prototype.getFilms = function () {
-        return this.getQuery('films').subscribe(function (data) {
-            console.log(data);
-        });
+        return this.getQuery('films');
+    };
+    //Otras funciones
+    KinoService.prototype.validate = function (error) {
+        if (error.status == 401) {
+            localStorage.removeItem('token');
+            this.router.navigate(['login']);
+        }
     };
     KinoService = tslib_1.__decorate([
         Injectable({
             providedIn: 'root'
         }),
-        tslib_1.__metadata("design:paramtypes", [HttpClient])
+        tslib_1.__metadata("design:paramtypes", [HttpClient, Router])
     ], KinoService);
     return KinoService;
 }());

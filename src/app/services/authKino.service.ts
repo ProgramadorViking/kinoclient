@@ -26,6 +26,7 @@ export class AuthKinoService {
     this.http.post(url, JSON.stringify(user), http).subscribe(data => {
       this.router.navigate(['home']);
       localStorage.setItem('token',data['token']);
+      localStorage.setItem('rol',data['rol']);
     });
   }
 

@@ -21,6 +21,7 @@ var AuthKinoService = /** @class */ (function () {
         this.http.post(url, JSON.stringify(user), http).subscribe(function (data) {
             _this.router.navigate(['home']);
             localStorage.setItem('token', data['token']);
+            localStorage.setItem('rol', data['rol']);
         });
     };
     AuthKinoService.prototype.register = function (name, email, password) {

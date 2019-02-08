@@ -1,10 +1,15 @@
 import * as tslib_1 from "tslib";
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 var FilmComponent = /** @class */ (function () {
     function FilmComponent() {
+        this.items = [];
     }
     FilmComponent.prototype.ngOnInit = function () {
     };
+    tslib_1.__decorate([
+        Input(),
+        tslib_1.__metadata("design:type", Array)
+    ], FilmComponent.prototype, "items", void 0);
     FilmComponent = tslib_1.__decorate([
         Component({
             selector: 'app-film',
