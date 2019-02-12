@@ -12,12 +12,12 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CoverComponent } from './components/cover/cover.component';
-import { FilmsComponent } from './components/films/films.component';
+import { FilmsComponent } from './components/film/films/films.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { CardComponent } from './components/card/card.component';
-import { FilmComponent } from './components/film/film.component';
-import { FilmEditComponent } from './components/film-edit/film-edit.component';
+import { FilmComponent } from './components/film/film/film.component';
+import { FilmEditComponent } from './components/film/film-edit/film-edit.component';
+import { FilmviewComponent } from './components/film/filmview/filmview.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,9 @@ import { FilmEditComponent } from './components/film-edit/film-edit.component';
     FilmsComponent,
     LoginComponent,
     RegisterComponent,
-    CardComponent,
     FilmComponent,
-    FilmEditComponent
+    FilmEditComponent,
+    FilmviewComponent
   ],
   imports: [
     BrowserModule,

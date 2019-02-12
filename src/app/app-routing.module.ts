@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { CoverComponent } from './components/cover/cover.component';
-import { FilmsComponent } from './components/films/films.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { FilmEditComponent } from './components/film-edit/film-edit.component';
+
+import { FilmsComponent } from './components/film/films/films.component';
+import { FilmEditComponent } from './components/film/film-edit/film-edit.component';
+import { FilmComponent } from './components/film/film/film.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +19,7 @@ const routes: Routes = [
   //LINKS Pelicula
   { path: 'films/new', component: FilmEditComponent},
   { path: 'films/edit/:id', component: FilmEditComponent},
+  { path: 'films/:id', component: FilmComponent},
 
   //LINKS NO ENCONTRADOS
   { path: '**', pathMatch: 'full', redirectTo:'inicio'},

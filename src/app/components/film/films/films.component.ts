@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { KinoService } from '../../services/kino.service';
+import { KinoService } from '../../../services/kino.service';
 
 @Component({
   selector: 'app-films',
