@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'inicio', component: CoverComponent },
   //LINKS Pelicula
   { path: 'films/new', component: FilmEditComponent},
-
+  { path: 'films/edit/:id', component: FilmEditComponent},
 
   //LINKS NO ENCONTRADOS
   { path: '**', pathMatch: 'full', redirectTo:'inicio'},

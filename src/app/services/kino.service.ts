@@ -52,7 +52,7 @@ export class KinoService {
     return this.getQuery('films');
   }
   getFilm(id) {
-    let string = 'film/'+id;
+    let string = 'films/'+id;
     return this.getQuery(string);
   }
   saveFilm(film:Film) {

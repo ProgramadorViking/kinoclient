@@ -41,7 +41,7 @@ var KinoService = /** @class */ (function () {
         return this.getQuery('films');
     };
     KinoService.prototype.getFilm = function (id) {
-        var string = 'film/' + id;
+        var string = 'films/' + id;
         return this.getQuery(string);
     };
     KinoService.prototype.saveFilm = function (film) {
