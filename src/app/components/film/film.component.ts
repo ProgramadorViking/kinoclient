@@ -7,9 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FilmComponent implements OnInit {
 
+  rol:boolean;
+
   @Input() items: any[]=[];
 
-  constructor() { }
+  constructor() { 
+    if(localStorage.getItem('rol')!='0') {
+      this.rol=true;
+    } else {
+      this.rol=false;
+    }
+  }
 
   ngOnInit() {
   }

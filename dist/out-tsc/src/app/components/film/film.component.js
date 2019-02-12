@@ -3,6 +3,12 @@ import { Component, Input } from '@angular/core';
 var FilmComponent = /** @class */ (function () {
     function FilmComponent() {
         this.items = [];
+        if (localStorage.getItem('rol') != '0') {
+            this.rol = true;
+        }
+        else {
+            this.rol = false;
+        }
     }
     FilmComponent.prototype.ngOnInit = function () {
     };

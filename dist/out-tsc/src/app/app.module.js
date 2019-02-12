@@ -1,7 +1,9 @@
 import * as tslib_1 from "tslib";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { toCategory } from './pipes/category.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -12,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CardComponent } from './components/card/card.component';
 import { FilmComponent } from './components/film/film.component';
+import { FilmEditComponent } from './components/film-edit/film-edit.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -19,6 +22,7 @@ var AppModule = /** @class */ (function () {
         NgModule({
             declarations: [
                 AppComponent,
+                toCategory,
                 NavbarComponent,
                 HomeComponent,
                 CoverComponent,
@@ -26,12 +30,14 @@ var AppModule = /** @class */ (function () {
                 LoginComponent,
                 RegisterComponent,
                 CardComponent,
-                FilmComponent
+                FilmComponent,
+                FilmEditComponent
             ],
             imports: [
                 BrowserModule,
                 AppRoutingModule,
-                HttpClientModule
+                HttpClientModule,
+                FormsModule
             ],
             providers: [],
             bootstrap: [AppComponent]

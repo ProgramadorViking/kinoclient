@@ -4,15 +4,17 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
+import { Film } from '../models/Films'
+
 @Injectable({
   providedIn: 'root'
 })
 export class KinoService {
 
   //Prod Api 
-  api='https://kinoapi.herokuapp.com/'
+  //api='https://kinoapi.herokuapp.com/'
   //Dev Api
-  //api='http://kino.test/'
+  api='http://kino.test/'
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -32,15 +34,33 @@ export class KinoService {
     return this.http.get(url,{headers: headers});
   }
 
-  postQuery(query:string, object:string) {
+  postQuery(query:string, object:any) {
     let url = this.api+query;
     let headers:HttpHeaders=this.createHeader();
     return this.http.post(url,JSON.stringify(object),{headers: headers});
   }
 
-  //peticiones
+  putQuery(query:string, object:any) {
+    let url = this.api+query;
+    let headers:HttpHeaders=this.createHeader();
+    return this.http.put(url,JSON.stringify(object),{headers: headers});
+  }
+
+  // P E T I C I O N E S 
+  // F I L M S ->
   getFilms():Observable <any> {
     return this.getQuery('films');
+  }
+  getFilm(id) {
+    let string = 'film/'+id;
+    return this.getQuery(string);
+  }
+  saveFilm(film:Film) {
+    return this.postQuery('films',film);
+  }
+  updateFilm(id:number, film:Film) {
+    let string='films/'+id;
+    return this.putQuery(string,film);
   }
 
   //Otras funciones

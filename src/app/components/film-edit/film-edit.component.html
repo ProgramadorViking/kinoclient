@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="row m-4">
+<div class='col-md-4 offset-md-2'>
+    <div class='card'>
+      <div class='card-body'>
+        <form>
+          <div class='form-group'>
+            <input type='text' name='name' [(ngModel)]='film.name' placeholder='title' class='form-control' autofocus/>
+          </div>
+          <div class="form-group">
+            <select [(ngModel)]="film.category" name="category" class="form-control">
+              <option value="0" selected> - Seleccione una categoria -</option>
+              <option value="1">Acción</option>
+              <option value="2">Ciencia Ficción</option>
+              <option value="3">Comedia</option>
+              <option value="4">Drama</option>
+              <option value="5">Fantasía</option>
+              <option value="6">Musical</option>
+              <option value="7">Romance</option>
+              <option value="8">Suspense</option>
+              <option value="9">Terror</option>
+              <option value="10">Documental</option>
+              <option value="11">Adulto</option>
+            </select>
+          </div>
+          <div class='form-group'>
+            <textarea name='description' [(ngModel)]='film.description' placeholder='Description' rows='2' class='form-control'></textarea>
+          </div>
+          <div class='form-group'>
+            <input type='url' name='image' [(ngModel)]='film.image' placeholder='Image' class='form-control' />
+          </div>
+          <button class='btn btn-success btn-block' (click)='edit ? updateFilm() : saveNewFilm()'>Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class='col-md-4'>
+    <div class='card card-body text-center'>
+      <img [src]="film.image" class='card-img-top'/>
+      <h3>{{film.id}}. {{film.name == '' ? 'Nombre pelicula' : film.name}}</h3>
+      <p>{{film.category | toCategory }}</p>
+      <p>{{film.description}}</p>
+      <p>{{film.created_at | date: 'yyy-MM-dd'}}</p>
+    </div>
+  </div>
+</div>

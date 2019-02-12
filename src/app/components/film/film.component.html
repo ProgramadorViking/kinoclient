@@ -8,7 +8,7 @@
         <div class="card-footer">
           <div class="row d-flex butonera">
             <a class="btn btn-info ml-auto" [routerLink]="['../films/',item.id]">Ver más</a>
-            <a class="btn btn-warning ml-auto" [routerLink]="['../films/edit/',item.id]">Editar</a>
+            <a class="btn btn-warning ml-auto" [routerLink]="['../films/edit/',item.id]" *ngIf="rol">Editar</a>
           </div>
         </div>
     </div>
