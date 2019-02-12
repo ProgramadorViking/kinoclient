@@ -23,11 +23,20 @@
               <option value="11">Adulto</option>
             </select>
           </div>
+          <div class="form-group">
+            <input type="date" name="premier" [(ngModel)]='film.premiere' class="form-control"/>
+          </div>
           <div class='form-group'>
             <textarea name='description' [(ngModel)]='film.description' placeholder='Description' rows='2' class='form-control'></textarea>
           </div>
+          <div class="form-group">
+            <input type="number" name="pegi" [(ngModel)]="film.pegi" class="form-control"/>
+          </div>
           <div class='form-group'>
             <input type='url' name='image' [(ngModel)]='film.image' placeholder='Image' class='form-control' />
+          </div>
+          <div class="form-group">
+            <input type="url" name="trailer" [(ngModel)]="film.trailer" placeholder="Trailer" class="form-control" />
           </div>
           <button class='btn btn-success btn-block' (click)='edit ? updateFilm() : saveNewFilm()'>Save</button>
         </form>
@@ -37,10 +46,13 @@
   <div class='col-md-4'>
     <div class='card card-body text-center'>
       <img [src]="film.image" class='card-img-top'/>
-      <h3>{{film.id}}. {{film.name == '' ? 'Nombre pelicula' : film.name}}</h3>
+      <h3>{{film.name == '' ? 'Nombre pelicula' : film.name}}</h3>
       <p>{{film.category | toCategory }}</p>
+      <p>{{film.premiere | date: 'dd-MM-yyyy' }}</p>
       <p>{{film.description}}</p>
+      <p>{{film.pegi}}</p>
       <p>{{film.created_at | date: 'yyy-MM-dd'}}</p>
+      <iframe width="853" height="480" [src]="film.trailer | sanadorUrl" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>

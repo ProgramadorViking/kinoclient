@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { toCategory } from './pipes/category.pipe';
+import { sanadorUrl } from './pipes/sanador.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,6 +24,7 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 AppComponent,
                 toCategory,
+                sanadorUrl,
                 NavbarComponent,
                 HomeComponent,
                 CoverComponent,

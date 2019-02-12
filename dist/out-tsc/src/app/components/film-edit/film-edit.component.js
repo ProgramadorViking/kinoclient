@@ -11,7 +11,7 @@ var FilmEditComponent = /** @class */ (function () {
             id: 0,
             name: '',
             category: 0,
-            premier: '',
+            premiere: '',
             description: '',
             pegi: 0,
             created_at: new Date,
