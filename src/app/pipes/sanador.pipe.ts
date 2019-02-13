@@ -9,6 +9,7 @@ export class sanadorUrl implements PipeTransform {
     constructor(protected sanitizer: DomSanitizer) {}
 
     transform(data:string) {
-        return this.sanitizer.bypassSecurityTrustResourceUrl(data);
+        let string = 'https://www.youtube.com/embed/'+data;
+        return this.sanitizer.bypassSecurityTrustResourceUrl(string);
     }
 }

@@ -6,7 +6,8 @@ var sanadorUrl = /** @class */ (function () {
         this.sanitizer = sanitizer;
     }
     sanadorUrl.prototype.transform = function (data) {
-        return this.sanitizer.bypassSecurityTrustResourceUrl(data);
+        var string = 'https://www.youtube.com/embed/' + data;
+        return this.sanitizer.bypassSecurityTrustResourceUrl(string);
     };
     sanadorUrl = tslib_1.__decorate([
         Pipe({
