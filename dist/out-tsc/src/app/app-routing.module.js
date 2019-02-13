@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FilmsComponent } from './components/film/films/films.component';
 import { FilmEditComponent } from './components/film/film-edit/film-edit.component';
-import { FilmComponent } from './components/film/film/film.component';
+import { FilmviewComponent } from './components/film/filmview/filmview.component';
 var routes = [
     { path: 'home', component: HomeComponent },
     { path: 'films', component: FilmsComponent },
@@ -17,7 +17,7 @@ var routes = [
     //LINKS Pelicula
     { path: 'films/new', component: FilmEditComponent },
     { path: 'films/edit/:id', component: FilmEditComponent },
-    { path: 'films/:id', component: FilmComponent },
+    { path: 'films/:id', component: FilmviewComponent },
     //LINKS NO ENCONTRADOS
     { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];

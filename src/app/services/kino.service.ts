@@ -12,9 +12,9 @@ import { Film } from '../models/Films'
 export class KinoService {
 
   //Prod Api 
-  //api='https://kinoapi.herokuapp.com/'
+  api='https://kinoapi.herokuapp.com/'
   //Dev Api
-  api='http://kino.test/'
+  //api='http://kino.test/'
 
   constructor(private http: HttpClient, private router: Router) { }
 

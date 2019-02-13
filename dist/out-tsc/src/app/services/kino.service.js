@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 var KinoService = /** @class */ (function () {
+    //Dev Api
+    //api='http://kino.test/'
     function KinoService(http, router) {
         this.http = http;
         this.router = router;
         //Prod Api 
-        //api='https://kinoapi.herokuapp.com/'
-        //Dev Api
-        this.api = 'http://kino.test/';
+        this.api = 'https://kinoapi.herokuapp.com/';
     }
     //Creación de la cabecera
     KinoService.prototype.createHeader = function () {

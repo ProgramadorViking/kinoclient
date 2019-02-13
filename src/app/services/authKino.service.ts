@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 export class AuthKinoService {
 
   //Prod api
-  //api = 'https://kinoapi.herokuapp.com/auth';
+  api = 'https://kinoapi.herokuapp.com/auth';
   //Dev api
-  api = 'http://kino.test/auth';
+  //api = 'http://kino.test/auth';
   token;
 
   constructor(private http: HttpClient, private router: Router) { }
