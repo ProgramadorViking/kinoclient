@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Film } from '../../../models/Films';
+import { Router, ActivatedRoute } from '@angular/router';
+import { KinoService } from 'src/app/services/kino.service';
+
 @Component({
   selector: 'app-filmview',
   templateUrl: './filmview.component.html',
@@ -7,7 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmviewComponent implements OnInit {
 
-  constructor() { }
+  film: Film;
+
+  constructor(private kino:KinoService, private route:Router, private activateRoute:ActivatedRoute ) {
+    const params = this.activateRoute.snapshot.params;
+    this.kino.getFilm(params.id).subscribe((data:Film)=>{
+      this.film=data;
+    })
+  }
 
   ngOnInit() {
   }

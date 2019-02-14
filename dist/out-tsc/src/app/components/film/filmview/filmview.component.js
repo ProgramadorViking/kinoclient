@@ -1,7 +1,17 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { KinoService } from 'src/app/services/kino.service';
 var FilmviewComponent = /** @class */ (function () {
-    function FilmviewComponent() {
+    function FilmviewComponent(kino, route, activateRoute) {
+        var _this = this;
+        this.kino = kino;
+        this.route = route;
+        this.activateRoute = activateRoute;
+        var params = this.activateRoute.snapshot.params;
+        this.kino.getFilm(params.id).subscribe(function (data) {
+            _this.film = data;
+        });
     }
     FilmviewComponent.prototype.ngOnInit = function () {
     };
@@ -11,7 +21,7 @@ var FilmviewComponent = /** @class */ (function () {
             templateUrl: './filmview.component.html',
             styleUrls: ['./filmview.component.css']
         }),
-        tslib_1.__metadata("design:paramtypes", [])
+        tslib_1.__metadata("design:paramtypes", [KinoService, Router, ActivatedRoute])
     ], FilmviewComponent);
     return FilmviewComponent;
 }());
