@@ -22,7 +22,7 @@ export class FilmsComponent implements OnInit {
     this.loading=true;
     this.kino.getFilms().subscribe((data:any)=>{
       this.peliculas=data;
-      console.log(data);
+      this.loading=false;
     }, error=>{
       this.kino.validate(error);
       console.log(error);

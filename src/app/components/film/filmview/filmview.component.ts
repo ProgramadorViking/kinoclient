@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Film } from '../../../models/Films';
+import { Film } from 'src/app/models/Films';
 import { Router, ActivatedRoute } from '@angular/router';
 import { KinoService } from 'src/app/services/kino.service';
 

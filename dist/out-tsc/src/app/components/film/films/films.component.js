@@ -15,7 +15,7 @@ var FilmsComponent = /** @class */ (function () {
         this.loading = true;
         this.kino.getFilms().subscribe(function (data) {
             _this.peliculas = data;
-            console.log(data);
+            _this.loading = false;
         }, function (error) {
             _this.kino.validate(error);
             console.log(error);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthKinoService } from '../../services/authKino.service';
+import { AuthKinoService } from 'src/app/services/authKino.service';
 
 @Component({
   selector: 'app-navbar',
