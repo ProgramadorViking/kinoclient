@@ -22,6 +22,9 @@
                 <td class="anunciant">Categoria:</td>
                 <td>{{film.category | toCategory }}</td>
             </tr>
+            <tr>
+                <td colspan="2"><iframe width="853" height="480" [src]="film.trailer | sanadorUrl" frameborder="0" allowfullscreen></iframe></td>
+            </tr>
         </table>
     </div>
 </div>
