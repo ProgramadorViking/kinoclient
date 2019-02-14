@@ -9,8 +9,10 @@ var FilmviewComponent = /** @class */ (function () {
         this.route = route;
         this.activateRoute = activateRoute;
         var params = this.activateRoute.snapshot.params;
+        this.loading = true;
         this.kino.getFilm(params.id).subscribe(function (data) {
             _this.film = data;
+            _this.loading = false;
         });
     }
     FilmviewComponent.prototype.ngOnInit = function () {

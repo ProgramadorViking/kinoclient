@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<div class="row m-5">
+
+<app-loading *ngIf="loading"></app-loading>
+<div class="row m-5" *ngIf="!loading">
     <div class="col-12">
         <h1 class="display-1">{{film.name}}</h1>
     </div>

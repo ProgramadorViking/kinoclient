@@ -6,40 +6,40 @@ var toCategory = /** @class */ (function () {
     toCategory.prototype.transform = function (data) {
         var string;
         switch (data) {
-            case '0':
+            case '0' && 0:
                 string = "Sin categoria";
                 break;
-            case '1':
+            case '1' && 1:
                 string = "Acción";
                 break;
-            case '2':
+            case '2' && 2:
                 string = "Ciencia Ficción";
                 break;
-            case '3':
+            case '3' && 3:
                 string = "Comedia";
                 break;
-            case '4':
+            case '4' && 4:
                 string = "Drama";
                 break;
-            case '5':
+            case '5' && 5:
                 string = "Fantasía";
                 break;
-            case '6':
+            case '6' && 6:
                 string = "Musical";
                 break;
-            case '7':
+            case '7' && 7:
                 string = "Romance";
                 break;
-            case '8':
+            case '8' && 8:
                 string = "Suspense";
                 break;
-            case '9':
+            case '9' && 9:
                 string = "Terror";
                 break;
-            case '10':
+            case '10' && 10:
                 string = "Documental";
                 break;
-            case '11':
+            case '11' && 11:
                 string = "Adulto";
                 break;
         }

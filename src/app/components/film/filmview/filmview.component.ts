@@ -12,11 +12,14 @@ import { KinoService } from 'src/app/services/kino.service';
 export class FilmviewComponent implements OnInit {
 
   film: Film;
+  loading:boolean;
 
   constructor(private kino:KinoService, private route:Router, private activateRoute:ActivatedRoute ) {
     const params = this.activateRoute.snapshot.params;
+    this.loading=true;
     this.kino.getFilm(params.id).subscribe((data:Film)=>{
       this.film=data;
+      this.loading=false;
     })
   }
 
