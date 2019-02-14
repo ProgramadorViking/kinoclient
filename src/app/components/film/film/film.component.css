@@ -1,3 +1,9 @@
 .butonera a {
     margin:auto;
 }
+.card-columns {
+    column-count: 6;
+  }
+.card-img-top {
+    width: 100%;
+}
