@@ -8,6 +8,7 @@ var FilmviewComponent = /** @class */ (function () {
         this.kino = kino;
         this.route = route;
         this.activateRoute = activateRoute;
+        this.item = 0;
         var params = this.activateRoute.snapshot.params;
         this.loading = true;
         this.kino.getFilm(params.id).subscribe(function (data) {

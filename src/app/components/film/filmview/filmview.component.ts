@@ -13,6 +13,7 @@ export class FilmviewComponent implements OnInit {
 
   film: Film;
   loading:boolean;
+  item:number=0;
 
   constructor(private kino:KinoService, private route:Router, private activateRoute:ActivatedRoute ) {
     const params = this.activateRoute.snapshot.params;

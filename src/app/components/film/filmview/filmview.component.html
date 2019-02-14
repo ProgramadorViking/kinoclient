@@ -6,7 +6,13 @@
         <h1 class="display-1">{{film.name}}</h1>
     </div>
     <div class="col-4">
-        <img [src]="film.image" alt="{{film.name}}" />
+        <img [src]="film.image" alt="{{film.name}}" class="img-responsive" />
+        <select [(ngModel)]='item' name='status' class="form-control">
+            <option value="0">Sin conocer</option>
+            <option value="1">Pendiente</option>
+            <option value="2">Vista</option>
+            <option value="3">Favorita</option>
+        </select>
     </div>
     <div class="col-8">
         <table class="table table-hover table-borderless">
@@ -23,7 +29,7 @@
                 <td>{{film.category | toCategory }}</td>
             </tr>
             <tr>
-                <td colspan="2"><iframe width="853" height="480" [src]="film.trailer | sanadorUrl" frameborder="0" allowfullscreen></iframe></td>
+                <td colspan="2"><iframe [src]="film.trailer | sanadorUrl" frameborder="0" allowfullscreen></iframe></td>
             </tr>
         </table>
     </div>
