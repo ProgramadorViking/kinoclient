@@ -22,6 +22,9 @@ export class FilmviewComponent implements OnInit {
       this.film=data;
       this.loading=false;
     })
+    this.kino.getMyList(params.id).subscribe(data=>{
+      this.item = data[0].status;
+    })
   }
 
   ngOnInit() {
@@ -34,9 +37,7 @@ export class FilmviewComponent implements OnInit {
       film_id: params.id,
       status: this.item
     }
-    this.kino.addStatus(status).subscribe(data=>{
-      console.log(data);
-    })
+    this.kino.addStatus(status).subscribe(data=>{})
   }
 
 }

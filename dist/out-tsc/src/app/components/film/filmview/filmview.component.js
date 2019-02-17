@@ -15,6 +15,9 @@ var FilmviewComponent = /** @class */ (function () {
             _this.film = data;
             _this.loading = false;
         });
+        this.kino.getMyList(params.id).subscribe(function (data) {
+            _this.item = data[0].status;
+        });
     }
     FilmviewComponent.prototype.ngOnInit = function () {
     };
@@ -24,9 +27,7 @@ var FilmviewComponent = /** @class */ (function () {
             film_id: params.id,
             status: this.item
         };
-        this.kino.addStatus(status).subscribe(function (data) {
-            console.log(data);
-        });
+        this.kino.addStatus(status).subscribe(function (data) { });
     };
     FilmviewComponent = tslib_1.__decorate([
         Component({
