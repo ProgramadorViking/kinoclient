@@ -22,7 +22,7 @@ var AuthKinoService = /** @class */ (function () {
             })
         };
         var user = { email: email, password: password };
-        var url = this.api + '/login';
+        var url = this.api + 'login';
         this.http.post(url, JSON.stringify(user), http).subscribe(function (data) {
             _this.router.navigate(['home']);
             localStorage.setItem('token', data['token']);
@@ -37,7 +37,7 @@ var AuthKinoService = /** @class */ (function () {
             })
         };
         var user = { name: name, email: email, password: password };
-        var url = this.api + '/register';
+        var url = this.api + 'register';
         this.http.post(url, JSON.stringify(user), http).subscribe(function (data) {
             _this.router.navigate(['login']);
         });

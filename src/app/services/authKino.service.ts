@@ -25,7 +25,7 @@ export class AuthKinoService {
       })
     };
     let user = {email: email, password: password};
-    let url = this.api+'/login';
+    let url = this.api+'login';
     this.http.post(url, JSON.stringify(user), http).subscribe(data => {
       this.router.navigate(['home']);
       localStorage.setItem('token',data['token']);
@@ -40,7 +40,7 @@ export class AuthKinoService {
       })
     };
     let user = {name: name, email: email, password: password};
-    let url = this.api+'/register';
+    let url = this.api+'register';
     this.http.post(url, JSON.stringify(user), http).subscribe(data=> {
       this.router.navigate(['login']);
     })
