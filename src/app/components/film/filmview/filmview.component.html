@@ -7,7 +7,7 @@
     </div>
     <div class="col-4">
         <img [src]="film.image" alt="{{film.name}}" class="img-responsive" />
-        <select [(ngModel)]='item' name='status' class="form-control">
+        <select [(ngModel)]='item' name='status' class="form-control" (change)="changeStatus()">
             <option value="0">Sin conocer</option>
             <option value="1">Pendiente</option>
             <option value="2">Vista</option>

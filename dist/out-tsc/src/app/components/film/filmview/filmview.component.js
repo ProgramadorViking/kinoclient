@@ -18,6 +18,16 @@ var FilmviewComponent = /** @class */ (function () {
     }
     FilmviewComponent.prototype.ngOnInit = function () {
     };
+    FilmviewComponent.prototype.changeStatus = function () {
+        var params = this.activateRoute.snapshot.params;
+        var status = {
+            film_id: params.id,
+            status: this.item
+        };
+        this.kino.addStatus(status).subscribe(function (data) {
+            console.log(data);
+        });
+    };
     FilmviewComponent = tslib_1.__decorate([
         Component({
             selector: 'app-filmview',

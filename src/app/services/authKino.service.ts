@@ -7,13 +7,16 @@ import { Router } from '@angular/router';
 })
 export class AuthKinoService {
 
-  //Prod api
-  api = 'https://kinoapi.herokuapp.com/auth';
-  //Dev api
-  //api = 'http://kino.test/auth';
-  token;
+  api:string;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { 
+    //Detecta el servidor
+    if (location.hostname==="localhost" || location.hostname==="127.0.0.1") {
+      this.api="http://kino.test/"
+    } else {
+      this.api="https://kinoapi.herokuapp.com/"
+    }
+  }
 
   login(email:string,password:string) {
     let http = {

@@ -27,4 +27,16 @@ export class FilmviewComponent implements OnInit {
   ngOnInit() {
   }
 
+  public changeStatus() {
+    
+    const params = this.activateRoute.snapshot.params;
+    let status = {
+      film_id: params.id,
+      status: this.item
+    }
+    this.kino.addStatus(status).subscribe(data=>{
+      console.log(data);
+    })
+  }
+
 }

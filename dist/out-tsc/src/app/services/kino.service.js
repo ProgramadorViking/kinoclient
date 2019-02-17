@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 var KinoService = /** @class */ (function () {
-    //Dev Api
-    //api='http://kino.test/'
     function KinoService(http, router) {
         this.http = http;
         this.router = router;
-        //Prod Api 
-        this.api = 'https://kinoapi.herokuapp.com/';
+        //Detecta el servidor
+        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+            this.api = "http://kino.test/";
+        }
+        else {
+            this.api = "https://kinoapi.herokuapp.com/";
+        }
     }
     //Creación de la cabecera
     KinoService.prototype.createHeader = function () {
@@ -50,6 +53,22 @@ var KinoService = /** @class */ (function () {
     KinoService.prototype.updateFilm = function (id, film) {
         var string = 'films/' + id;
         return this.putQuery(string, film);
+    };
+    // S T A T S ->
+    KinoService.prototype.getListUser = function (id) {
+        var string = 'list/user/' + id;
+        return this.getQuery(string);
+    };
+    KinoService.prototype.getListFilm = function (id) {
+        var string = 'list/film/' + id;
+        return this.getQuery(string);
+    };
+    KinoService.prototype.getMyList = function (id) {
+        var string = 'list/my/' + id;
+        return this.getQuery(string);
+    };
+    KinoService.prototype.addStatus = function (status) {
+        return this.postQuery('list', status);
     };
     //Otras funciones
     KinoService.prototype.validate = function (error) {

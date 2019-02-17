@@ -11,12 +11,16 @@ import { Film } from '../models/Films'
 })
 export class KinoService {
 
-  //Prod Api 
-  api='https://kinoapi.herokuapp.com/'
-  //Dev Api
-  //api='http://kino.test/'
+  api:string;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    //Detecta el servidor
+    if (location.hostname==="localhost" || location.hostname==="127.0.0.1") {
+      this.api="http://kino.test/"
+    } else {
+      this.api="https://kinoapi.herokuapp.com/"
+    }
+  }
 
   //Creación de la cabecera
   createHeader() {
@@ -61,6 +65,22 @@ export class KinoService {
   updateFilm(id:number, film:Film) {
     let string='films/'+id;
     return this.putQuery(string,film);
+  }
+  // S T A T S ->
+  getListUser(id) {
+    let string = 'list/user/'+id;
+    return this.getQuery(string);
+  }
+  getListFilm(id) {
+    let string = 'list/film/'+id;
+    return this.getQuery(string);
+  }
+  getMyList(id) {
+    let string = 'list/my/'+id;
+    return this.getQuery(string);
+  }
+  addStatus(status:any) {
+    return this.postQuery('list',status);
   }
 
   //Otras funciones
