@@ -8,10 +8,10 @@ var AuthKinoService = /** @class */ (function () {
         this.router = router;
         //Detecta el servidor
         if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-            this.api = "http://kino.test/";
+            this.api = "http://kino.test/auth/";
         }
         else {
-            this.api = "https://kinoapi.herokuapp.com/";
+            this.api = "https://kinoapi.herokuapp.com/auth/";
         }
     }
     AuthKinoService.prototype.login = function (email, password) {
