@@ -1,6 +1,64 @@
 
 <app-navbar></app-navbar>
-<p>
-  home works!
-</p>
-<p *ngIf='auth.logIn'>Patata</p> 
+<div id="portada" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#portada" data-slide-to="0" class="active"></li>
+    <li data-target="#portada" data-slide-to="1"></li>
+    <li data-target="#portada" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide">
+        <title>Placeholder</title>
+        <rect fill="#777" width="100%" height="100%"></rect>
+        <text fill="#555" dy=".5em" x="50%" y="50%">First slide</text>
+      </svg>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Prova</h5>
+        <p>aixo es text</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide">
+        <title>Placeholder</title>
+        <rect fill="#666" width="100%" height="100%"></rect>
+        <text fill="#444" dy=".5em" x="50%" y="50%">Second slide</text>
+      </svg>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Prova</h5>
+        <p>aixo es text</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide">
+        <title>Placeholder</title>
+        <rect fill="#555" width="100%" height="100%"></rect>
+        <text fill="#333" dy=".5em" x="50%" y="50%">
+          height: 400px;
+          width: 100%;
+        </text>
+      </svg>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><a href="#">Veure actualitzacions</a></h5>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#portada" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+  <a class="carousel-control-next" href="#portada" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+</div>
+<!-- Aqui fem les petites mostres -->
+<div class="row">
+  <div class="col-12">
+      <h2 class="display-4">Ultimas peliculas</h2>
+      <!-- Aqui anirien les ultimes 6 pelicules...-->
+      <h2 class="display-4">Ultimas peliculas vistas</h2>
+      <!-- aqui aniries les ultimes 6 pelicules...-->
+  </div>
+</div>
+
