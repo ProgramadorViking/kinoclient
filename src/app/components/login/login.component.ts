@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthKinoService } from '../../services/authKino.service';
+import { AuthKinoService } from 'src/app/services/authKino.service';
 
 @Component({
   selector: 'app-login',

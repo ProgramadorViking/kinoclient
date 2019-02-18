@@ -19,6 +19,7 @@ import { FilmComponent } from './components/film/film/film.component';
 import { FilmEditComponent } from './components/film/film-edit/film-edit.component';
 import { FilmviewComponent } from './components/film/filmview/filmview.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     FilmComponent,
     FilmEditComponent,
     FilmviewComponent,
-    LoadingComponent
+    LoadingComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
-import { AuthKinoService } from '../../services/authKino.service';
+import { AuthKinoService } from 'src/app/services/authKino.service';
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(auth) {
         this.auth = auth;
