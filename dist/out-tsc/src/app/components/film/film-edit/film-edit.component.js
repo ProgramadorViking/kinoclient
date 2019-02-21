@@ -16,7 +16,8 @@ var FilmEditComponent = /** @class */ (function () {
             pegi: 0,
             created_at: new Date,
             trailer: '',
-            image: ''
+            image: '',
+            duration: 0
         };
         this.edit = false;
     }

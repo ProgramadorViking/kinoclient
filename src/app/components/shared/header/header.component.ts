@@ -9,7 +9,7 @@ import { AuthKinoService } from 'src/app/services/authKino.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private auth:AuthKinoService) { }
+  constructor(public auth:AuthKinoService) { }
 
   ngOnInit() {
   }

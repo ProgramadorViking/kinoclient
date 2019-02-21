@@ -9,4 +9,5 @@ export interface Film{
     updated_at?:Date;
     image?:string;
     trailer?:string;
+    duration?:number;
   };
