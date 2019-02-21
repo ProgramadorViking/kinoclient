@@ -60,6 +60,7 @@ export class KinoService {
     return this.getQuery(string);
   }
   saveFilm(film:Film) {
+    console.log("hola");
     return this.postQuery('films',film);
   }
   updateFilm(id:number, film:Film) {

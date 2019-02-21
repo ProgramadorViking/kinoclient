@@ -4,6 +4,7 @@ import { AuthKinoService } from 'src/app/services/authKino.service';
 var HeaderComponent = /** @class */ (function () {
     function HeaderComponent(auth) {
         this.auth = auth;
+        this.login = auth.logIn;
     }
     HeaderComponent.prototype.ngOnInit = function () {
     };
