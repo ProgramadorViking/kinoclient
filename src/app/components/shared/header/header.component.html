@@ -1,15 +1,14 @@
 <header class="masthead mb-auto">
     <div class="inner">
       <h3 class="masthead-brand">Kino</h3>
-      <nav class="nav nav-masthead justify-content-center" *ngIf="!auth.login">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['../']">Inicio</a>
+      <nav class="nav nav-masthead justify-content-center" *ngIf="!auth.logIn">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['../inicio']">Inicio</a>
         <a class="nav-link" routerLinkActive="active" [routerLink]="['../login']">Login</a>
         <a class="nav-link" routerLinkActive="active" [routerLink]="['../register']">Registro</a>
       </nav>
-      <nav class="nav nav-masthead justify-content-center" *ngIf="auth.login">
+      <nav class="nav nav-masthead justify-content-center" *ngIf="auth.logIn">
         <a class="nav-link" routerLinkActive="active" [routerLink]="['../home']">Inicio</a>
         <a class="nav-link" [routerLink]="['../films']">Peliculas</a>
-        <a class="nav-link" [routerLink]="['../sagas']">Sagas</a>
       </nav>
     </div>
   </header>
