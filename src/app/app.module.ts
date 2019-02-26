@@ -20,6 +20,10 @@ import { FilmEditComponent } from './components/film/film-edit/film-edit.compone
 import { FilmviewComponent } from './components/film/filmview/filmview.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { IndexDirctorComponent } from './components/director/index-dirctor/index-dirctor.component';
+import { DirectorComponent } from './components/director/director/director.component';
+import { DirectorEditComponent } from './components/director/director-edit/director-edit.component';
+import { CardDirectorComponent } from './components/director/card-director/card-director.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { HeaderComponent } from './components/shared/header/header.component';
     FilmEditComponent,
     FilmviewComponent,
     LoadingComponent,
-    HeaderComponent
+    HeaderComponent,
+    IndexDirctorComponent,
+    DirectorComponent,
+    DirectorEditComponent,
+    CardDirectorComponent
   ],
   imports: [
     BrowserModule,

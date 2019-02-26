@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
-import { KinoService } from '../../../services/kino.service';
+import { KinoService } from 'src/app/services/kino.service';
 var FilmsComponent = /** @class */ (function () {
     function FilmsComponent(kino) {
         var _this = this;
@@ -18,7 +18,6 @@ var FilmsComponent = /** @class */ (function () {
             _this.loading = false;
         }, function (error) {
             _this.kino.validate(error);
-            console.log(error);
         });
     }
     FilmsComponent.prototype.ngOnInit = function () {

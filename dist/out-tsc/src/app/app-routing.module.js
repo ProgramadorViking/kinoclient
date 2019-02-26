@@ -8,6 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { FilmsComponent } from './components/film/films/films.component';
 import { FilmEditComponent } from './components/film/film-edit/film-edit.component';
 import { FilmviewComponent } from './components/film/filmview/filmview.component';
+import { IndexDirctorComponent } from './components/director/index-dirctor/index-dirctor.component';
+import { DirectorComponent } from './components/director/director/director.component';
+import { DirectorEditComponent } from './components/director/director-edit/director-edit.component';
 var routes = [
     { path: 'home', component: HomeComponent },
     { path: 'films', component: FilmsComponent },
@@ -18,6 +21,11 @@ var routes = [
     { path: 'films/new', component: FilmEditComponent },
     { path: 'films/edit/:id', component: FilmEditComponent },
     { path: 'films/:id', component: FilmviewComponent },
+    //LINKS Directors
+    { path: 'director', component: IndexDirctorComponent },
+    { path: 'director/new', component: DirectorEditComponent },
+    { path: 'director/edit/:id', component: DirectorEditComponent },
+    { path: 'director/:id', component: DirectorComponent },
     //LINKS NO ENCONTRADOS
     { path: '**', pathMatch: 'full', redirectTo: 'inicio' },
 ];

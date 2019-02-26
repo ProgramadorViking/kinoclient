@@ -1,7 +1,7 @@
 <header class="masthead mb-auto">
     <div class="inner">
       <h3 class="masthead-brand">Kino</h3>
-      <nav class="nav nav-masthead justify-content-center" *ngIf="login">
+      <nav class="nav nav-masthead justify-content-center" *ngIf="!login">
         <a class="nav-link" routerLinkActive="active" [routerLink]="['../inicio']">Inicio</a>
         <a class="nav-link" routerLinkActive="active" [routerLink]="['../login']">Login</a>
         <a class="nav-link" routerLinkActive="active" [routerLink]="['../register']">Registro</a>

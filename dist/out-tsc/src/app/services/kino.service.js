@@ -17,6 +17,7 @@ var KinoService = /** @class */ (function () {
     //Creación de la cabecera
     KinoService.prototype.createHeader = function () {
         var headers = new HttpHeaders({
+            'Access-Control-Allow-Origin': '*',
             'Authorization': 'Bearer ' + localStorage.getItem('token'),
             'Content-Type': 'application/json'
         });
@@ -70,6 +71,10 @@ var KinoService = /** @class */ (function () {
     };
     KinoService.prototype.addStatus = function (status) {
         return this.postQuery('list', status);
+    };
+    // D I R E C T O R S ->
+    KinoService.prototype.getDirectors = function () {
+        return this.getQuery('directors');
     };
     //Otras funciones
     KinoService.prototype.validate = function (error) {

@@ -25,6 +25,7 @@ export class KinoService {
   //Creación de la cabecera
   createHeader() {
     let headers = new HttpHeaders({
+      'Access-Control-Allow-Origin':'*',
       'Authorization': 'Bearer '+localStorage.getItem('token'),
       'Content-Type':  'application/json'
     })
@@ -82,6 +83,10 @@ export class KinoService {
   }
   addStatus(status:any) {
     return this.postQuery('list',status);
+  }
+  // D I R E C T O R S ->
+  getDirectors():Observable<any> {
+    return this.getQuery('directors');
   }
 
   //Otras funciones
