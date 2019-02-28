@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Film } from '../../../models/Films';
-import { KinoService } from '../../../services/kino.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { Film } from 'src/app/models/Films';
+import { KinoService } from 'src/app/services/kino.service';
 
 @Component({
   selector: 'app-film-edit',
@@ -11,7 +13,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FilmEditComponent implements OnInit {
 
-  film: Film = {
+  forma:FormGroup;
+  edit:boolean=false;
+
+  film:Film = {
     id: 0,
     name: '',
     category:0,
@@ -24,9 +29,20 @@ export class FilmEditComponent implements OnInit {
     duration: 0
   }
 
-  edit:boolean=false;
+  constructor(private kino:KinoService, private route:Router, private activeRoute:ActivatedRoute) { 
 
-  constructor(private kino:KinoService, private route:Router, private activeRoute:ActivatedRoute) { }
+    this.forma = new FormGroup({
+      'name': new FormControl('',[Validators.required,Validators.minLength(2)]),
+      'category': new FormControl('',Validators.required),
+      'premiere': new FormControl('',Validators.required),
+      'description': new FormControl('',[Validators.required,Validators.minLength(50)]),
+      'pegi': new FormControl('',Validators.required),
+      'trailer': new FormControl('',Validators.required),
+      'image': new FormControl('',Validators.required),
+      'duration': new FormControl('',Validators.required)
+    })
+    
+  }
 
   ngOnInit() {
     const params = this.activeRoute.snapshot.params;
@@ -38,19 +54,19 @@ export class FilmEditComponent implements OnInit {
     }
   }
 
-  saveNewFilm() {
-    delete this.film.created_at;
-    delete this.film.id;
-    this.kino.saveFilm(this.film).subscribe(res=>{
-      this.route.navigate(['/films']);
-    })
-  }
-
-  updateFilm() {
-    delete this.film.created_at;
-    this.kino.updateFilm(this.film.id, this.film).subscribe(res=>{
-      this.route.navigate(['/films']);
-    })
+  guardarCambios() {
+    if(this.edit) {
+      delete this.film.created_at;
+      this.kino.updateFilm(this.film.id, this.film).subscribe(res=>{
+        this.route.navigate(['/films']);
+      })
+    } else {
+      delete this.film.created_at;
+      delete this.film.id;
+      this.kino.saveFilm(this.film).subscribe(res=>{
+        this.route.navigate(['/films']);
+      })
+    }
   }
 
 }

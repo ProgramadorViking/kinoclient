@@ -1,62 +1,163 @@
 <app-navbar></app-navbar>
-<div class="row m-4">
-<div class='col-md-4 offset-md-2'>
-    <div class='card'>
-      <div class='card-body'>
-        <form>
-          <div class='form-group'>
-            <input type='text' name='name' [(ngModel)]='film.name' placeholder='title' class='form-control' autofocus/>
-          </div>
-          <div class="form-group">
-            <select [(ngModel)]="film.category" name="category" class="form-control">
-              <option value="0" selected> - Seleccione una categoria -</option>
-              <option value="1">Acción</option>
-              <option value="2">Ciencia Ficción</option>
-              <option value="3">Comedia</option>
-              <option value="4">Drama</option>
-              <option value="5">Fantasía</option>
-              <option value="6">Musical</option>
-              <option value="7">Romance</option>
-              <option value="8">Suspense</option>
-              <option value="9">Terror</option>
-              <option value="10">Documental</option>
-              <option value="11">Adulto</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input type="number" name="duration" [(ngModel)]='film.duration' class="form-control"/>
-          </div>
-          <div class="form-group">
-            <input type="date" name="premier" [(ngModel)]='film.premiere' class="form-control"/>
-          </div>
-          <div class='form-group'>
-            <textarea name='description' [(ngModel)]='film.description' placeholder='Description' rows='2' class='form-control'></textarea>
-          </div>
-          <div class="form-group">
-            <input type="number" name="pegi" [(ngModel)]="film.pegi" class="form-control"/>
-          </div>
-          <div class='form-group'>
-            <input type='url' name='image' [(ngModel)]='film.image' placeholder='Image' class='form-control' />
-          </div>
-          <div class="form-group">
-            <input type="url" name="trailer" [(ngModel)]="film.trailer" placeholder="Trailer" class="form-control" />
-          </div>
-          <button class='btn btn-success btn-block' (click)='edit ? updateFilm() : saveNewFilm()'>Save</button>
-        </form>
+<div class="row">
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()" class="col-md-4">
+  <h4 *ngIf="edit">Editando: {{film.name}}</h4>
+  <h4 *ngIf="!edit">Nueva</h4>
+  <hr>
+  <!-- Nombre -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Nombre</label>
+    <div class="col-md-8">
+      <input class="form-control" type="text" placeholder="Nombre pelicula"
+             formControlName="name" [(ngModel)]="film.name"
+             [ngClass]="{'is-invalid': !forma.get('name').valid && forma.get('name').touched, 'is-valid': forma.get('name').valid && forma.get('name').touched}">
+      <div class="form-control-feedback" *ngIf="forma.get('name').errors?.required">
+        El nombre es necesario.
+      </div>
+      <div class="form-control-feedback" *ngIf="forma.get('name').errors?.minlength">
+        Por lo menos 2 caracteres
       </div>
     </div>
   </div>
-  <div class='col-md-4'>
-    <div class='card card-body text-center'>
-      <img [src]="film.image" class='card-img-top'/>
-      <h3>{{film.name == '' ? 'Nombre pelicula' : film.name}}</h3>
-      <p>{{film.duration}} min.</p>
-      <p>{{film.category | toCategory }}</p>
-      <p>{{film.premiere | date: 'dd-MM-yyyy' }}</p>
-      <p>{{film.description}}</p>
-      <p>{{film.pegi}}</p>
-      <p>{{film.created_at | date: 'yyy-MM-dd'}}</p>
-      <iframe width="853" height="480" [src]="film.trailer | sanadorUrl" frameborder="0" allowfullscreen></iframe>
+  <!-- Categorias -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Categoria</label>
+    <div class="col-md-8">
+      <select class="form-control" formControlName="category" [(ngModel)]="film.category"
+      [ngClass]="{'is-invalid': !forma.get('category').valid && forma.get('category').touched, 'is-valid': forma.get('category').valid && forma.get('category').touched}">
+        <option value="0" selected> - Seleccione una categoria -</option>
+        <option value="1">Acción</option>
+        <option value="2">Ciencia Ficción</option>
+        <option value="3">Comedia</option>
+        <option value="4">Drama</option>
+        <option value="5">Fantasía</option>
+        <option value="6">Musical</option>
+        <option value="7">Romance</option>
+        <option value="8">Suspense</option>
+        <option value="9">Terror</option>
+        <option value="10">Documental</option>
+        <option value="11">Adulto</option>
+      </select>
+    </div>
+  </div>
+  <!-- Premiere -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Estreno</label>
+    <div class="col-md-8">
+      <input class="form-control" type="date"
+             formControlName="premiere" [(ngModel)]="film.premiere">
+      <div class="form-control-feedback" *ngIf="forma.get('premiere').errors?.required"
+        [ngClass]="{'is-invalid': !forma.get('premiere').valid && forma.get('premiere').touched, 'is-valid': forma.get('premiere').valid && forma.get('premiere').touched}">
+        La fecha de estreno es necesaria
+      </div>
+    </div>
+  </div>
+  <!-- Duración -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Duración</label>
+    <div class="col-md-8">
+      <input class="form-control" type="number" min="0"
+             formControlName="duration" [(ngModel)]="film.duration"
+             [ngClass]="{'is-invalid': !forma.get('duration').valid && forma.get('duration').touched, 'is-valid': forma.get('duration').valid && forma.get('duration').touched}">
+      <div class="form-control-feedback" *ngIf="forma.get('duration').errors?.required">
+        La duración es necesaria
+      </div>
+      <div class="form-control-feedback" *ngIf="forma.get('duration').errors?.minlength">
+        Por lo menos 2 caracteres
+      </div>
+    </div>
+  </div>
+  <!-- Descripción -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Descripción</label>
+    <div class="col-md-8">
+      <textarea class="form-control" type="number" min="0"
+             formControlName="description" [(ngModel)]="film.description"
+             [ngClass]="{'is-invalid': !forma.get('description').valid && forma.get('description').touched, 'is-valid': forma.get('description').valid && forma.get('description').touched}"></textarea>
+      <div class="form-control-feedback" *ngIf="forma.get('description').errors?.required">
+        La descripción es necesaria
+      </div>
+      <div class="form-control-feedback" *ngIf="forma.get('description').errors?.minlength">
+        Por lo menos 50 caracteres
+      </div>
+    </div>
+  </div>
+  <!-- Pegi -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Duración</label>
+    <div class="col-md-8">
+      <input class="form-control" type="number" min="0"
+             formControlName="pegi" [(ngModel)]="film.pegi"
+             [ngClass]="{'is-invalid': !forma.get('pegi').valid && forma.get('pegi').touched, 'is-valid': forma.get('pegi').valid && forma.get('pegi').touched}">
+      <div class="form-control-feedback" *ngIf="forma.get('pegi').errors?.required">
+        Pegi (clasificacion por edad) es necesaria.
+      </div>
+    </div>
+  </div>
+  <!-- Imagen -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Imagen</label>
+    <div class="col-md-8">
+      <input class="form-control" type="url"
+             formControlName="image" [(ngModel)]="film.image"
+             [ngClass]="{'is-invalid': !forma.get('image').valid && forma.get('image').touched, 'is-valid': forma.get('image').valid && forma.get('image').touched}">
+      <div class="form-control-feedback" *ngIf="forma.get('image').errors?.required">
+        La imagen (portada) es necesaria
+      </div>
+    </div>
+  </div>
+  <!-- Trailer -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">Trailer (YT)</label>
+    <div class="col-md-8">
+      <input class="form-control" type="url" min="0"
+             formControlName="trailer" [(ngModel)]="film.trailer"
+             [ngClass]="{'is-invalid': !forma.get('trailer').valid && forma.get('trailer').touched, 'is-valid': forma.get('trailer').valid && forma.get('trailer').touched}">
+      <div class="form-control-feedback" *ngIf="forma.get('trailer').errors?.required">
+        El trailer es necesario
+      </div>
+    </div>
+  </div>
+
+  <!-- Enviar -->
+  <div class="form-group row">
+    <label class="col-md-4 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
+<!-- Previsualización -->
+<div class="col-md-8">
+  <h4>Previsualizando: {{film.name}}</h4>
+  <div class="row">
+    <div class="col-md-4">
+        <img [src]="film.image" class='card-img-top'/>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-hover table-borderless">
+            <tr>
+                <td class="anunciant">Sinopsis:</td>
+                <td>{{film.description}}</td>
+            </tr>
+            <tr>
+                <td class="anunciant">Duración:</td>
+                <td>{{film.duration}} min.</td>
+            </tr>
+            <tr>
+                <td class="anunciant">Premiere:</td>
+                <td>{{film.premiere}}</td>
+            </tr>
+            <tr>
+                <td class="anunciant">Categoria:</td>
+                <td>{{film.category | toCategory }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><iframe [src]="film.trailer | sanadorUrl" frameborder="0" allowfullscreen></iframe></td>
+            </tr>
+        </table>
     </div>
   </div>
 </div>
