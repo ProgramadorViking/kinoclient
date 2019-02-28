@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="row">
-<form [formGroup]="forma" (ngSubmit)="guardarCambios()" class="col-md-4">
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()" class="col-md-4 div-center">
   <h4 *ngIf="edit">Editando: {{film.name}}</h4>
   <h4 *ngIf="!edit">Nueva</h4>
   <hr>
@@ -130,7 +130,7 @@
   </div>
 </form>
 <!-- Previsualización -->
-<div class="col-md-8">
+<div class="col-md-12">
   <h4>Previsualizando: {{film.name}}</h4>
   <div class="row">
     <div class="col-md-4">

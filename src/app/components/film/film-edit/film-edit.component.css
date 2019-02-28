@@ -12,3 +12,7 @@ iframe {
     width: 100%;
     height: 50vh;
 }
+.div-center {
+    margin:auto;
+    margin-top: 50px;
+}
