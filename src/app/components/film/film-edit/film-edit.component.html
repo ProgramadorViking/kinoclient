@@ -84,13 +84,13 @@
   </div>
   <!-- Pegi -->
   <div class="form-group row">
-    <label class="col-md-4 col-form-label">Duración</label>
+    <label class="col-md-4 col-form-label">Pegi (Edad)</label>
     <div class="col-md-8">
       <input class="form-control" type="number" min="0"
              formControlName="pegi" [(ngModel)]="film.pegi"
              [ngClass]="{'is-invalid': !forma.get('pegi').valid && forma.get('pegi').touched, 'is-valid': forma.get('pegi').valid && forma.get('pegi').touched}">
       <div class="form-control-feedback" *ngIf="forma.get('pegi').errors?.required">
-        Pegi (clasificacion por edad) es necesaria.
+        Pegi (clasificacion por edad) es necesaria, 0 es para todos los publicos.
       </div>
     </div>
   </div>
