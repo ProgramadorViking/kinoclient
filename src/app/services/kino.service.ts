@@ -67,6 +67,9 @@ export class KinoService {
     let string='films/'+id;
     return this.putQuery(string,film);
   }
+  getLastFilms() {
+    return this.getQuery('films/last');
+  }
   // S T A T S ->
   getListUser(id) {
     let string = 'list/user/'+id;

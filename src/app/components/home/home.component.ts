@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthKinoService } from '../../services/authKino.service';
+import { KinoService } from 'src/app/services/kino.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,16 @@ import { AuthKinoService } from '../../services/authKino.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public auth: AuthKinoService, private router: Router) {
+  ultimas:any[]=[];
+  vistas:any[]=[];
+
+  constructor(public auth: AuthKinoService, private router: Router, private kino:KinoService) {
     if(!auth.logIn) {
       this.router.navigate(['inicio']);
     }
+    this.kino.getLastFilms().subscribe((data:any)=>{
+      this.ultimas=data;
+    })
    }
 
   ngOnInit() {
