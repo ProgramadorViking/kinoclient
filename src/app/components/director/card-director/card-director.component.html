@@ -1,3 +1,20 @@
-<p>
-  card-director works!
-</p>
+<div class="card-columns m-5 animated fadeIn">
+  <div *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" class="card">
+      <img [src]="item.image" class="card-img-top" alt="...">
+      <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      
+      </div>
+      <div class="card-footer">
+        <div class="row d-flex butonera">
+          <a class="btn btn-info ml-auto" [routerLink]="['../director/',item.id]">Ver más</a>
+          <a class="btn btn-warning ml-auto" [routerLink]="['../director/edit/',item.id]" *ngIf="rol">Editar</a>
+        </div>
+      </div>
+  </div>
+</div>
+<ngb-pagination
+[(page)]="page"
+[pageSize]="pageSize"
+[collectionSize]="items.length"
+class="d-flex justify-content-center"></ngb-pagination> 

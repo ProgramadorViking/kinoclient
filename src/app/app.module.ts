@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpClientModule } from '@angular/common/http';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { toCategory } from './pipes/category.pipe';
 import { sanadorUrl } from './pipes/sanador.pipe';
@@ -51,7 +53,9 @@ import { CardDirectorComponent } from './components/director/card-director/card-
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

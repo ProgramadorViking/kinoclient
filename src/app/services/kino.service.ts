@@ -61,7 +61,6 @@ export class KinoService {
     return this.getQuery(string);
   }
   saveFilm(film:Film) {
-    console.log("hola");
     return this.postQuery('films',film);
   }
   updateFilm(id:number, film:Film) {
@@ -87,6 +86,17 @@ export class KinoService {
   // D I R E C T O R S ->
   getDirectors():Observable<any> {
     return this.getQuery('directors');
+  }
+  getDirector(id) {
+    let string = 'directors/'+id;
+    return this.getQuery(string);
+  }
+  saveDirector(director:any) {
+    return this.postQuery('directors',director);
+  }
+  updateDirector(id:number, director:any) {
+    let string='directors/'+id;
+    return this.putQuery(string,director);
   }
 
   //Otras funciones

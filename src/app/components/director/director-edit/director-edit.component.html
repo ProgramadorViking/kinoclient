@@ -1,3 +1,96 @@
-<p>
-  director-edit works!
-</p>
+<app-navbar></app-navbar>
+<div class="row" *ngIf="!loading">
+  <form [formGroup]="forma" (ngSubmit)="guardarCambios()" class="col-md-4 div-center">
+    <h4 *ngIf="edit">Editando: {{director.name}}</h4>
+    <h4 *ngIf="!edit">Nuevo Director</h4>
+    <hr>
+    <!-- Nombre -->
+    <div class="form-group row">
+      <label class="col-md-4 col-form-label">Nombre</label>
+      <div class="col-md-8">
+        <input class="form-control" type="text" placeholder="Nombre director"
+                formControlName="name" [(ngModel)]="director.name"
+                [ngClass]="{'is-invalid': !forma.get('name').valid && forma.get('name').touched, 'is-valid': forma.get('name').valid && forma.get('name').touched}">
+        <div class="form-control-feedback" *ngIf="forma.get('name').errors?.required">
+          El nombre es necesario.
+        </div>
+        <div class="form-control-feedback" *ngIf="forma.get('name').errors?.minlength">
+          Por lo menos 5 caracteres
+        </div>
+      </div>
+    </div>
+    <!-- Nacimiento -->
+    <div class="form-group row">
+      <label class="col-md-4 col-form-label">Nacimiento</label>
+      <div class="col-md-8">
+        <input class="form-control" type="date"
+                formControlName="birthday" [(ngModel)]="director.birthday">
+        <div class="form-control-feedback" *ngIf="forma.get('birthday').errors?.required"
+          [ngClass]="{'is-invalid': !forma.get('birthday').valid && forma.get('birthday').touched, 'is-valid': forma.get('birthday').valid && forma.get('birthday').touched}">
+          La fecha de nacimiento es necesaria
+        </div>
+      </div>
+    </div>
+    <!-- Nacionalidad -->
+    <div class="form-group row">
+      <label class="col-md-4 col-form-label">País</label>
+      <div class="col-md-8">
+        <select class="form-control" formControlName="nation" [(ngModel)]="director.nation"
+        [ngClass]="{'is-invalid': !forma.get('nation').valid && forma.get('nation').touched, 'is-valid': forma.get('nation').valid && forma.get('nation').touched}">
+          <option value="0" selected> - Seleccione una categoria -</option>
+          <option value="{{nation.numericCode}}" *ngFor="let nation of nations">{{nation.translations.es}}</option>
+        </select>
+      </div>
+    </div>
+    <!-- Imagen -->
+    <div class="form-group row">
+      <label class="col-md-4 col-form-label">Imagen</label>
+      <div class="col-md-8">
+        <input class="form-control" type="url"
+               formControlName="image" [(ngModel)]="director.image"
+               [ngClass]="{'is-invalid': !forma.get('image').valid && forma.get('image').touched, 'is-valid': forma.get('image').valid && forma.get('image').touched}">
+        <div class="form-control-feedback" *ngIf="forma.get('image').errors?.required">
+          La imagen es necesaria
+        </div>
+      </div>
+    </div>
+    <!-- Pelis -->
+    <div class="form-group row">
+      <label class="col-md-4 col-form-label">Pelicula</label>
+      <div class="col-md-8">
+          <ng-select
+            [multiple]="true"
+            [items]="films"
+            placeholder="Seleccione peliculas"
+            bindLabel="name"
+            bindValue="id"
+            formControlName="filmography">
+            <ng-template ng-typetosearch-tmp>
+                <div class="ng-option disabled">
+                    Empiece a escribir...
+                </div>
+            </ng-template>
+            <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+                <div class="ng-option disabled">
+                    Nada encontrado por "{{searchTerm}}"
+                </div>
+            </ng-template>
+            <ng-template ng-loadingtext-tmp let-searchTerm="searchTerm">
+                <div class="ng-option disabled">
+                    Buscando por "{{searchTerm}}"
+                </div>
+            </ng-template>
+        </ng-select>
+      </div>
+    </div>
+    <!-- Enviar -->
+    <div class="form-group row">
+      <label class="col-md-4 col-form-label">&nbsp;</label>
+      <div class="input-group col-md-8">
+        <button type="submit" class="btn btn-outline-primary">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
