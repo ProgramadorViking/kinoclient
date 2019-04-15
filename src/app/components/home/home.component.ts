@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
     }
     this.kino.getLastFilms().subscribe((data:any)=>{
       this.ultimas=data;
+    });
+    this.kino.getLastViews().subscribe((data:any)=>{
+      this.vistas=data;
     })
    }
 

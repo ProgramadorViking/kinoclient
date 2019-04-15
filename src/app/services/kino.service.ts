@@ -86,6 +86,9 @@ export class KinoService {
   addStatus(status:any) {
     return this.postQuery('list',status);
   }
+  getLastViews() {
+    return this.getQuery('list/views');
+  }
   // D I R E C T O R S ->
   getDirectors():Observable<any> {
     return this.getQuery('directors');
