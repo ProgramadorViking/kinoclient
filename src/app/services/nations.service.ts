@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 export class NationsService {
 
   api:string="https://restcountries.eu/rest/v2/all?fields=translations;flag;cioc;numericCode;";
-
   constructor(private http: HttpClient, private router: Router) { }
 
   getNations() {

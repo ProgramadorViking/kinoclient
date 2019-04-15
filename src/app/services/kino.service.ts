@@ -104,6 +104,10 @@ export class KinoService {
     let string='directors/'+id;
     return this.putQuery(string,director);
   }
+  getDirectorWithFilms(id) {
+    let string = 'directors/films/'+id;
+    return this.getQuery(string);
+  }
 
   //Otras funciones
   validate(error) {

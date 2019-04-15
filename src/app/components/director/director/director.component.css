@@ -1,0 +1,17 @@
+table {
+    text-align: left;
+}
+.anunciant {
+    width: 10%;
+    font-weight: bold;
+}
+.img-responsive {
+    width: 100%;
+}
+iframe {
+    width: 100%;
+    height: 50vh;
+}
+.small {
+    width: 50px;
+}
