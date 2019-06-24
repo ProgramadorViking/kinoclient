@@ -14,7 +14,7 @@ export class AuthKinoService {
     if (location.hostname==="localhost" || location.hostname==="127.0.0.1") {
       this.api="http://kino.test/auth/"
     } else {
-      this.api="https://kinoapi.herokuapp.com/auth/"
+      this.api="http://kino.rastler.net/api/public/auth/"
     }
   }
 

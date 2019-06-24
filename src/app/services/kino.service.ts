@@ -18,7 +18,7 @@ export class KinoService {
     if (location.hostname==="localhost" || location.hostname==="127.0.0.1") {
       this.api="http://kino.test/"
     } else {
-      this.api="https://kinoapi.herokuapp.com/"
+      this.api="http://kino.rastler.net/api/public/"
     }
   }
 
